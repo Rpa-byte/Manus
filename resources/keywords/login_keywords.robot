@@ -1,11 +1,15 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource   ../variables/dev_variables.robot
+Library    OperatingSystem
+Library    ../../libraries/file_utils.py
+Library    ../../libraries/utils/file_utils.py
 
 *** Keywords ***
 Open Sage Login Page
     Set Screenshot Directory    ${OUTPUT_DIR}/screenshots
-    Open Browser    ${SAGE_URL}    ${BROWSER}
+    ${dl}=         Normalize Path    ${EXECDIR}/results/downloads_tmp
+    ${options}=    Get Chrome Options    ${dl}
+    Open Browser    ${SAGE_URL}    ${BROWSER}    options=${options}
     Set Selenium Timeout    ${TIMEOUT}
     Maximize Browser Window
 
