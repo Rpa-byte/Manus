@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.0 on win32)" generated="2026-09-03T15:01:41.324270" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\tests\login\login.robot">
+<test id="s1-t1" name="Login With Valid Credentials" line="8">
+<kw name="Open Sage Login Page" owner="login_keywords">
+<kw name="Set Screenshot Directory" owner="SeleniumLibrary">
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" start="2026-09-03T15:01:41.670773" elapsed="0.000415"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-03T15:01:41.671842" level="INFO">Opening browser 'chrome' to base url 'http://192.168.1.210:8124/auth/login/page'.</msg>
+<arg>${SAGE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-03T15:01:41.671437" elapsed="1.603104"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-09-03T15:01:43.274765" elapsed="0.001607"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-03T15:01:43.276538" elapsed="0.030863"/>
+</kw>
+<status status="PASS" start="2026-09-03T15:01:41.669804" elapsed="1.637767"/>
+</kw>
+<kw name="Login With Credentials" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-03T15:01:43.308861" level="INFO">Typing text 'ai' into text field 'id=login'.</msg>
+<arg>id=login</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-03T15:01:43.308515" elapsed="0.067120"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-09-03T15:01:43.376061" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2026-09-03T15:01:43.410269" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=password</arg>
+<arg>${pass}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-03T15:01:43.375800" elapsed="0.099586"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-03T15:01:43.475988" level="INFO">Clicking element 'id=go-basic'.</msg>
+<arg>id=go-basic</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-03T15:01:43.475647" elapsed="0.071184"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2026-09-03T15:01:43.308170" elapsed="0.238794"/>
+</kw>
+<kw name="Login Should Succeed" owner="login_keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-09-03T15:01:53.789017" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshots/selenium-screenshot-1.png"&gt;&lt;img src="../screenshots/selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-03T15:01:53.789640" level="FAIL">Element 'id=homeMenu' did not appear in 10 seconds.</msg>
+<arg>id=homeMenu</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-09-03T15:01:43.547702" elapsed="10.250587">Element 'id=homeMenu' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-09-03T15:01:43.547402" elapsed="10.251679">Element 'id=homeMenu' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-09-03T15:01:41.668776" elapsed="12.132124">Element 'id=homeMenu' did not appear in 10 seconds.</status>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-03T15:01:53.805474" elapsed="2.224831"/>
+</kw>
+<doc>Test de connexion à Sage X3</doc>
+<status status="FAIL" start="2026-09-03T15:01:41.325757" elapsed="14.704806"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="0" fail="1" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

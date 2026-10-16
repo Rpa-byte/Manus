@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.0 on win32)" generated="2026-09-03T14:23:34.443801" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\tests\login\login.robot">
+<test id="s1-t1" name="Login With Valid Credentials" line="8">
+<kw name="Open Sage Login Page" owner="login_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-03T14:23:34.803962" level="INFO">Opening browser 'chrome' to base url 'http://192.168.1.210:8124/auth/login/page'.</msg>
+<arg>${SAGE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-03T14:23:34.803584" elapsed="1.043281"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-09-03T14:23:35.847308" elapsed="0.001813"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-03T14:23:35.849397" elapsed="0.036680"/>
+</kw>
+<status status="PASS" start="2026-09-03T14:23:34.802690" elapsed="1.083493"/>
+</kw>
+<kw name="Login With Credentials" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-03T14:23:35.887738" level="INFO">Typing text 'ai' into text field 'id=login'.</msg>
+<arg>id=login</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-03T14:23:35.887225" elapsed="0.069678"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-09-03T14:23:35.957509" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2026-09-03T14:23:35.992078" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=password</arg>
+<arg>${pass}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-03T14:23:35.957149" elapsed="0.081896"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-03T14:23:36.039454" level="INFO">Clicking element 'id=go-basic'.</msg>
+<arg>id=go-basic</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-03T14:23:36.039237" elapsed="0.044287"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2026-09-03T14:23:35.886686" elapsed="0.197061"/>
+</kw>
+<kw name="Login Should Succeed" owner="login_keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-09-03T14:23:46.281181" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-03T14:23:46.281798" level="FAIL">Element 'id=homeMenu' did not appear in 10 seconds.</msg>
+<arg>id=homeMenu</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-09-03T14:23:36.084677" elapsed="10.397478">Element 'id=homeMenu' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-09-03T14:23:36.084331" elapsed="10.398494">Element 'id=homeMenu' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-09-03T14:23:34.801794" elapsed="11.683833">Element 'id=homeMenu' did not appear in 10 seconds.</status>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-03T14:23:46.506659" elapsed="2.312049"/>
+</kw>
+<doc>Test de connexion à Sage X3</doc>
+<status status="FAIL" start="2026-09-03T14:23:34.445466" elapsed="14.373439"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="0" fail="1" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

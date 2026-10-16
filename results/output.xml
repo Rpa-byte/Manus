@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.0 on win32)" generated="2026-10-16T10:32:41.556473" rpa="false" schemaversion="5">
+<suite id="s1" name="Recent Invoices Test" source="C:\Users\s.baho\desktop\Agent_Rpa\manus\robot-project\tests\recent_invoices_test.robot">
+<kw name="Connect To Database" owner="db_keywords" type="SETUP">
+<kw name="Connect To Sql Server" owner="db_connection">
+<msg time="2026-10-16T10:32:41.700733" level="INFO">${conn} = &lt;pyodbc.Connection object at 0x00000275E6BD5140&gt;</msg>
+<var>${conn}</var>
+<arg>${DB_DRIVER}</arg>
+<arg>${DB_SERVER}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<doc>Return an open pyodbc connection.</doc>
+<status status="PASS" start="2026-10-16T10:32:41.633801" elapsed="0.067023"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-16T10:32:41.703476" level="INFO">${DB_CONN} = &lt;pyodbc.Connection object at 0x00000275E6BD5140&gt;</msg>
+<arg>${DB_CONN}</arg>
+<arg>${conn}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-16T10:32:41.701161" elapsed="0.002520"/>
+</kw>
+<status status="PASS" start="2026-10-16T10:32:41.633321" elapsed="0.070602"/>
+</kw>
+<test id="s1-t1" name="Fetch Invoices From Last 30 Days" line="8">
+<kw name="Fetch Recent Invoices" owner="db_keywords">
+<kw name="Execute Sql File" owner="db_connection">
+<msg time="2026-10-16T10:32:42.228312" level="INFO">${rows} = [{'NUM_0': 'FR153973', 'ACCDAT_0': datetime.datetime(2026, 10, 16, 0, 0), 'PTHNUM_0': 'BL240184', 'POHNUM_0': 'BC222075', 'ITMDES1_0': 'BRIQUE BLCH8', 'XRET_0': 17, 'RN': 1}, {'NUM_0': 'FR153974', 'AC...</msg>
+<var>${rows}</var>
+<arg>${DB_CONN}</arg>
+<arg>${EXECDIR}/data/queries/recent_invoices.sql</arg>
+<doc>Read a .sql file, run it, and return the rows as a list of dicts.</doc>
+<status status="PASS" start="2026-10-16T10:32:41.706349" elapsed="0.522137"/>
+</kw>
+<return>
+<value>${rows}</value>
+<status status="PASS" start="2026-10-16T10:32:42.228746" elapsed="0.000201"/>
+</return>
+<msg time="2026-10-16T10:32:42.230180" level="INFO">${invoices} = [{'NUM_0': 'FR153973', 'ACCDAT_0': datetime.datetime(2026, 10, 16, 0, 0), 'PTHNUM_0': 'BL240184', 'POHNUM_0': 'BC222075', 'ITMDES1_0': 'BRIQUE BLCH8', 'XRET_0': 17, 'RN': 1}, {'NUM_0': 'FR153974', 'AC...</msg>
+<var>${invoices}</var>
+<status status="PASS" start="2026-10-16T10:32:41.705583" elapsed="0.524685"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-10-16T10:32:42.232098" level="INFO">Length is 171.</msg>
+<msg time="2026-10-16T10:32:42.232275" level="INFO">${count} = 171</msg>
+<var>${count}</var>
+<arg>${invoices}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-10-16T10:32:42.231040" elapsed="0.001276"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Invoices found: ${count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-10-16T10:32:42.232943" elapsed="0.000762"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T10:32:42.234793" level="INFO">Length is 171.</msg>
+<arg>${invoices}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T10:32:42.234106" elapsed="0.000768"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>First invoice: ${invoices}[0]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-10-16T10:32:42.235319" elapsed="0.000767"/>
+</kw>
+<status status="PASS" start="2026-10-16T10:32:41.704098" elapsed="0.532480"/>
+</test>
+<kw name="Disconnect From Database" owner="db_keywords" type="TEARDOWN">
+<kw name="Close Connection" owner="db_connection">
+<arg>${DB_CONN}</arg>
+<status status="PASS" start="2026-10-16T10:32:42.238425" elapsed="0.004400"/>
+</kw>
+<status status="PASS" start="2026-10-16T10:32:42.238101" elapsed="0.004914"/>
+</kw>
+<status status="PASS" start="2026-10-16T10:32:41.558524" elapsed="0.684555"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Recent Invoices Test" id="s1" pass="1" fail="0" skip="0">Recent Invoices Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
