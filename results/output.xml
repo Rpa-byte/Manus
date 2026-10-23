@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.0 on win32)" generated="2026-10-22T11:25:00.235037" rpa="false" schemaversion="5">
+<robot generator="Robot 7.5 (Python 3.12.10 on win32)" generated="2026-10-23T10:21:57.441598" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\tests">
 <suite id="s1-s1" name="Db Connection Test" source="C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\tests\db_connection_test.robot">
 <kw name="Connect To Database" owner="db_keywords" type="SETUP">
 <kw name="Connect To Sql Server" owner="db_connection">
-<msg time="2026-10-22T11:25:00.475629" level="INFO">${conn} = &lt;pyodbc.Connection object at 0x000001C0E1A753B0&gt;</msg>
+<msg time="2026-10-23T10:21:57.755283" level="INFO">${conn} = &lt;pyodbc.Connection object at 0x000001FA4B819620&gt;</msg>
 <var>${conn}</var>
 <arg>${DB_DRIVER}</arg>
 <arg>${DB_SERVER}</arg>
@@ -12,103 +12,103 @@
 <arg>${DB_USER}</arg>
 <arg>${DB_PASSWORD}</arg>
 <doc>Return an open pyodbc connection.</doc>
-<status status="PASS" start="2026-10-22T11:25:00.342836" elapsed="0.133113"/>
+<status status="PASS" start="2026-10-23T10:21:57.611693" elapsed="0.143590"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-10-22T11:25:00.479366" level="INFO">${DB_CONN} = &lt;pyodbc.Connection object at 0x000001C0E1A753B0&gt;</msg>
+<msg time="2026-10-23T10:21:57.757276" level="INFO">${DB_CONN} = &lt;pyodbc.Connection object at 0x000001FA4B819620&gt;</msg>
 <arg>${DB_CONN}</arg>
 <arg>${conn}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-10-22T11:25:00.476649" elapsed="0.002900"/>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-23T10:21:57.756280" elapsed="0.000996"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:00.341397" elapsed="0.138335"/>
+<status status="PASS" start="2026-10-23T10:21:57.611693" elapsed="0.145583"/>
 </kw>
 <test id="s1-s1-t1" name="Database Connection Works" line="8">
 <kw name="Query Database" owner="db_keywords">
 <kw name="Execute Query" owner="db_connection">
-<msg time="2026-10-22T11:25:00.773489" level="INFO">${rows} = [{'ACCDAT_0': datetime.datetime(2025, 6, 30, 0, 0), 'NUM_0': 'FR151919', 'PTHNUM_0': 'BL222784', 'RCPDAT_0': datetime.datetime(2025, 6, 17, 0, 0), 'POHNUM_0': 'BC204557', 'ORDDAT_0': datetime.datetime...</msg>
+<msg time="2026-10-23T10:21:58.720233" level="INFO">${rows} = [{'ACCDAT_0': datetime.datetime(2025, 6, 30, 0, 0), 'NUM_0': 'FR151947', 'PTHNUM_0': 'BL222935', 'RCPDAT_0': datetime.datetime(2025, 6, 23, 0, 0), 'POHNUM_0': 'BC204707', 'ORDDAT_0': datetime.datetime...</msg>
 <var>${rows}</var>
 <arg>${DB_CONN}</arg>
 <arg>${query}</arg>
 <doc>Run a SELECT and return a list of dicts.</doc>
-<status status="PASS" start="2026-10-22T11:25:00.481932" elapsed="0.291626"/>
+<status status="PASS" start="2026-10-23T10:21:57.758224" elapsed="0.963019"/>
 </kw>
 <return>
 <value>${rows}</value>
-<status status="PASS" start="2026-10-22T11:25:00.773709" elapsed="0.000108"/>
+<status status="PASS" start="2026-10-23T10:21:58.721243" elapsed="0.000000"/>
 </return>
-<msg time="2026-10-22T11:25:00.774099" level="INFO">${rows} = [{'ACCDAT_0': datetime.datetime(2025, 6, 30, 0, 0), 'NUM_0': 'FR151919', 'PTHNUM_0': 'BL222784', 'RCPDAT_0': datetime.datetime(2025, 6, 17, 0, 0), 'POHNUM_0': 'BC204557', 'ORDDAT_0': datetime.datetime...</msg>
+<msg time="2026-10-23T10:21:58.721243" level="INFO">${rows} = [{'ACCDAT_0': datetime.datetime(2025, 6, 30, 0, 0), 'NUM_0': 'FR151947', 'PTHNUM_0': 'BL222935', 'RCPDAT_0': datetime.datetime(2025, 6, 23, 0, 0), 'POHNUM_0': 'BC204707', 'ORDDAT_0': datetime.datetime...</msg>
 <var>${rows}</var>
 <arg>SELECT TOP 1 * FROM x3.BASE1.XLISTVENTER2</arg>
-<status status="PASS" start="2026-10-22T11:25:00.481323" elapsed="0.292817"/>
+<status status="PASS" start="2026-10-23T10:21:57.758224" elapsed="0.963019"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Result: ${rows}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-10-22T11:25:00.774664" elapsed="0.001003"/>
+<status status="PASS" start="2026-10-23T10:21:58.722235" elapsed="0.000000"/>
 </kw>
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-10-22T11:25:00.776925" level="INFO">Length is 1.</msg>
+<msg time="2026-10-23T10:21:58.723235" level="INFO">Length is 1.</msg>
 <arg>${rows}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-10-22T11:25:00.776195" elapsed="0.000813"/>
+<status status="PASS" start="2026-10-23T10:21:58.723235" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:00.479874" elapsed="0.297569"/>
+<status status="PASS" start="2026-10-23T10:21:57.757276" elapsed="0.966955"/>
 </test>
 <kw name="Disconnect From Database" owner="db_keywords" type="TEARDOWN">
 <kw name="Close Connection" owner="db_connection">
 <arg>${DB_CONN}</arg>
-<status status="PASS" start="2026-10-22T11:25:00.778844" elapsed="0.003987"/>
+<status status="PASS" start="2026-10-23T10:21:58.725234" elapsed="0.003996"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:00.778580" elapsed="0.004397"/>
+<status status="PASS" start="2026-10-23T10:21:58.724231" elapsed="0.004999"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:00.324314" elapsed="0.458709"/>
+<status status="PASS" start="2026-10-23T10:21:57.489339" elapsed="1.239891"/>
 </suite>
 <suite id="s1-s2" name="Folder Test" source="C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\tests\folder_test.robot">
 <test id="s1-s2-t1" name="Create Invoice Folder" line="5">
 <kw name="Prepare Invoice Folder" owner="invoice_keywords">
 <kw name="Normalize Path" owner="OperatingSystem">
-<msg time="2026-10-22T11:25:01.185753" level="INFO">${base} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures</msg>
+<msg time="2026-10-23T10:21:59.099733" level="INFO">${base} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures</msg>
 <var>${base}</var>
 <arg>${FACTURES_DIR}</arg>
 <doc>Normalizes the given path.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.185527" elapsed="0.000262"/>
+<status status="PASS" start="2026-10-23T10:21:59.099733" elapsed="0.000000"/>
 </kw>
 <kw name="Get Invoice Folder" owner="file_utils">
-<msg time="2026-10-22T11:25:01.186446" level="INFO">${folder} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026</msg>
+<msg time="2026-10-23T10:21:59.099733" level="INFO">${folder} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026</msg>
 <var>${folder}</var>
 <arg>${base}</arg>
 <doc>Create (if needed) and return base_dir/&lt;PreviousMonth&gt;_&lt;Year&gt;.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.185930" elapsed="0.000562"/>
+<status status="PASS" start="2026-10-23T10:21:59.099733" elapsed="0.000000"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-10-22T11:25:01.187593" level="INFO">${INVOICE_FOLDER} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026</msg>
+<msg time="2026-10-23T10:21:59.100731" level="INFO">${INVOICE_FOLDER} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026</msg>
 <arg>${INVOICE_FOLDER}</arg>
 <arg>${folder}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.186671" elapsed="0.000972"/>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-23T10:21:59.099733" elapsed="0.000998"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Invoice folder: ${folder}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.187759" elapsed="0.000429"/>
+<status status="PASS" start="2026-10-23T10:21:59.100731" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:01.184844" elapsed="0.003494"/>
+<status status="PASS" start="2026-10-23T10:21:59.098828" elapsed="0.002904"/>
 </kw>
 <kw name="Directory Should Exist" owner="OperatingSystem">
-<msg time="2026-10-22T11:25:01.188782" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026"&gt;C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026&lt;/a&gt;' exists.</msg>
+<msg time="2026-10-23T10:21:59.101732" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026"&gt;C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\Factures\September_2026&lt;/a&gt;' exists.</msg>
 <arg>${INVOICE_FOLDER}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.188558" elapsed="0.000285"/>
+<status status="PASS" start="2026-10-23T10:21:59.101732" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:01.184090" elapsed="0.004938"/>
+<status status="PASS" start="2026-10-23T10:21:59.097838" elapsed="0.004893"/>
 </test>
-<status status="PASS" start="2026-10-22T11:25:00.784578" elapsed="0.405215"/>
+<status status="PASS" start="2026-10-23T10:21:58.730232" elapsed="0.372499"/>
 </suite>
 <suite id="s1-s3" name="Main" source="C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\tests\main.robot">
 <kw name="Connect To Database" owner="db_keywords" type="SETUP">
 <kw name="Connect To Sql Server" owner="db_connection">
-<msg time="2026-10-22T11:25:01.207972" level="INFO">${conn} = &lt;pyodbc.Connection object at 0x000001C0E26A9BD0&gt;</msg>
+<msg time="2026-10-23T10:21:59.115774" level="INFO">${conn} = &lt;pyodbc.Connection object at 0x000001FA4C39B9E0&gt;</msg>
 <var>${conn}</var>
 <arg>${DB_DRIVER}</arg>
 <arg>${DB_SERVER}</arg>
@@ -116,152 +116,152 @@
 <arg>${DB_USER}</arg>
 <arg>${DB_PASSWORD}</arg>
 <doc>Return an open pyodbc connection.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.202187" elapsed="0.005871"/>
+<status status="PASS" start="2026-10-23T10:21:59.112735" elapsed="0.003039"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-10-22T11:25:01.209589" level="INFO">${DB_CONN} = &lt;pyodbc.Connection object at 0x000001C0E26A9BD0&gt;</msg>
+<msg time="2026-10-23T10:21:59.116735" level="INFO">${DB_CONN} = &lt;pyodbc.Connection object at 0x000001FA4C39B9E0&gt;</msg>
 <arg>${DB_CONN}</arg>
 <arg>${conn}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.208306" elapsed="0.001416"/>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-23T10:21:59.115774" elapsed="0.000961"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:01.201965" elapsed="0.007911"/>
+<status status="PASS" start="2026-10-23T10:21:59.112735" elapsed="0.004000"/>
 </kw>
 <test id="s1-s3-t1" name="Login With Valid Credentials" line="10">
 <kw name="Open Sage Login Page" owner="login_keywords">
 <kw name="Set Screenshot Directory" owner="SeleniumLibrary">
 <arg>${OUTPUT_DIR}/screenshots</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.210856" elapsed="0.000337"/>
+<status status="PASS" start="2026-10-23T10:21:59.117830" elapsed="0.000000"/>
 </kw>
 <kw name="Normalize Path" owner="OperatingSystem">
-<msg time="2026-10-22T11:25:01.211516" level="INFO">${dl} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\downloads_tmp</msg>
+<msg time="2026-10-23T10:21:59.117830" level="INFO">${dl} = C:\Users\s.baho\Desktop\Agent_RPA\manus\robot-project\results\downloads_tmp</msg>
 <var>${dl}</var>
 <arg>${EXECDIR}/results/downloads_tmp</arg>
 <doc>Normalizes the given path.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.211331" elapsed="0.000214"/>
+<status status="PASS" start="2026-10-23T10:21:59.117830" elapsed="0.000000"/>
 </kw>
 <kw name="Get Chrome Options" owner="file_utils">
-<msg time="2026-10-22T11:25:01.215933" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001C0E272D550&gt;</msg>
+<msg time="2026-10-23T10:21:59.123736" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001FA4C45B710&gt;</msg>
 <var>${options}</var>
 <arg>${dl}</arg>
 <doc>Chrome options: download PDFs into download_dir without asking.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.211654" elapsed="0.004375"/>
+<status status="PASS" start="2026-10-23T10:21:59.117830" elapsed="0.005906"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-10-22T11:25:01.216864" level="INFO">Opening browser 'chrome' to base url 'http://192.168.1.210:8124/auth/login/page'.</msg>
+<msg time="2026-10-23T10:21:59.124735" level="INFO">Opening browser 'chrome' to base url 'http://192.168.1.210:8124/auth/login/page'.</msg>
 <arg>${SAGE_URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-10-22T11:25:01.216375" elapsed="1.868015"/>
+<status status="PASS" start="2026-10-23T10:21:59.124735" elapsed="2.305009"/>
 </kw>
 <kw name="Set Selenium Timeout" owner="SeleniumLibrary">
 <arg>${TIMEOUT}</arg>
 <doc>Sets the timeout that is used by various keywords.</doc>
-<status status="PASS" start="2026-10-22T11:25:03.084625" elapsed="0.001789"/>
+<status status="PASS" start="2026-10-23T10:22:01.430742" elapsed="0.001001"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-10-22T11:25:03.086789" elapsed="0.039549"/>
+<status status="PASS" start="2026-10-23T10:22:01.432741" elapsed="0.036001"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:01.210524" elapsed="1.916140"/>
+<status status="PASS" start="2026-10-23T10:21:59.116735" elapsed="2.353006"/>
 </kw>
 <kw name="Login With Credentials" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-10-22T11:25:03.128994" level="INFO">Typing text 'ai' into text field 'id=login'.</msg>
+<msg time="2026-10-23T10:22:01.470741" level="INFO">Typing text 'ai' into text field 'id=login'.</msg>
 <arg>id=login</arg>
 <arg>${user}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-10-22T11:25:03.128141" elapsed="0.072945"/>
+<status status="PASS" start="2026-10-23T10:22:01.470741" elapsed="0.082514"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-10-22T11:25:03.201873" level="INFO">Typing password into text field 'id=password'.</msg>
-<msg time="2026-10-22T11:25:03.230130" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2026-10-23T10:22:01.554258" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2026-10-23T10:22:01.590484" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id=password</arg>
 <arg>${pass}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-10-22T11:25:03.201413" elapsed="0.068120"/>
+<status status="PASS" start="2026-10-23T10:22:01.553255" elapsed="0.089997"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-10-22T11:25:03.270972" level="INFO">Clicking element 'id=go-basic'.</msg>
+<msg time="2026-10-23T10:22:01.644256" level="INFO">Clicking element 'id=go-basic'.</msg>
 <arg>id=go-basic</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-10-22T11:25:03.270155" elapsed="0.054663"/>
+<status status="PASS" start="2026-10-23T10:22:01.644256" elapsed="0.090145"/>
 </kw>
 <arg>${USERNAME}</arg>
 <arg>${PASSWORD}</arg>
-<status status="PASS" start="2026-10-22T11:25:03.127349" elapsed="0.197863"/>
+<status status="PASS" start="2026-10-23T10:22:01.469741" elapsed="0.264660"/>
 </kw>
 <kw name="Login Should Succeed" owner="login_keywords">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>id=s_app_body</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-10-22T11:25:03.327399" elapsed="1.152007"/>
+<status status="PASS" start="2026-10-23T10:22:01.736403" elapsed="1.232814"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:03.326276" elapsed="1.153472"/>
+<status status="PASS" start="2026-10-23T10:22:01.735403" elapsed="1.233814"/>
 </kw>
 <kw name="Fetch Recent Invoices" owner="db_keywords">
 <kw name="Execute Sql File" owner="db_connection">
-<msg time="2026-10-22T11:25:04.707010" level="INFO">${rows} = [{'NUM_0': 'FR153978', 'ACCDAT_0': datetime.datetime(2026, 10, 22, 0, 0), 'PTHNUM_0': 'BL240042', 'POHNUM_0': 'BC221984', 'ITMDES1_0': 'BRIQUE B8', 'XRET_0': 0, 'RN': 1}, {'NUM_0': 'FRA130735', 'ACCDA...</msg>
+<msg time="2026-10-23T10:22:03.378348" level="INFO">${rows} = [{'NUM_0': 'FR153978', 'ACCDAT_0': datetime.datetime(2026, 10, 22, 0, 0), 'PTHNUM_0': 'BL240042', 'POHNUM_0': 'BC221984', 'ITMDES1_0': 'BRIQUE B8', 'XRET_0': 1, 'RN': 1}, {'NUM_0': 'FR153979', 'ACCDAT...</msg>
 <var>${rows}</var>
 <arg>${DB_CONN}</arg>
 <arg>${EXECDIR}/data/queries/recent_invoices.sql</arg>
 <doc>Read a .sql file, run it, and return the rows as a list of dicts.</doc>
-<status status="PASS" start="2026-10-22T11:25:04.481385" elapsed="0.225853"/>
+<status status="PASS" start="2026-10-23T10:22:02.972215" elapsed="0.407132"/>
 </kw>
 <return>
 <value>${rows}</value>
-<status status="PASS" start="2026-10-22T11:25:04.707566" elapsed="0.000249"/>
+<status status="PASS" start="2026-10-23T10:22:03.379347" elapsed="0.000000"/>
 </return>
-<msg time="2026-10-22T11:25:04.709495" level="INFO">${invoices} = [{'NUM_0': 'FR153978', 'ACCDAT_0': datetime.datetime(2026, 10, 22, 0, 0), 'PTHNUM_0': 'BL240042', 'POHNUM_0': 'BC221984', 'ITMDES1_0': 'BRIQUE B8', 'XRET_0': 0, 'RN': 1}, {'NUM_0': 'FRA130735', 'ACCDA...</msg>
+<msg time="2026-10-23T10:22:03.381341" level="INFO">${invoices} = [{'NUM_0': 'FR153978', 'ACCDAT_0': datetime.datetime(2026, 10, 22, 0, 0), 'PTHNUM_0': 'BL240042', 'POHNUM_0': 'BC221984', 'ITMDES1_0': 'BRIQUE B8', 'XRET_0': 1, 'RN': 1}, {'NUM_0': 'FR153979', 'ACCDAT...</msg>
 <var>${invoices}</var>
-<status status="PASS" start="2026-10-22T11:25:04.480832" elapsed="0.228803"/>
+<status status="PASS" start="2026-10-23T10:22:02.972215" elapsed="0.409126"/>
 </kw>
 <kw name="Get Length" owner="BuiltIn">
-<msg time="2026-10-22T11:25:04.712612" level="INFO">Length is 170.</msg>
-<msg time="2026-10-22T11:25:04.712964" level="INFO">${count} = 170</msg>
+<msg time="2026-10-23T10:22:03.385345" level="INFO">Length is 167.</msg>
+<msg time="2026-10-23T10:22:03.385345" level="INFO">${count} = 167</msg>
 <var>${count}</var>
 <arg>${invoices}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2026-10-22T11:25:04.710888" elapsed="0.002184"/>
+<status status="PASS" start="2026-10-23T10:22:03.383346" elapsed="0.001999"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Invoices found: ${count}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-10-22T11:25:04.714280" elapsed="0.001659"/>
+<status status="PASS" start="2026-10-23T10:22:03.387347" elapsed="0.001891"/>
 </kw>
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-10-22T11:25:04.719042" level="INFO">Length is 170.</msg>
+<msg time="2026-10-23T10:22:03.392353" level="INFO">Length is 167.</msg>
 <arg>${invoices}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-10-22T11:25:04.716946" elapsed="0.002413"/>
+<status status="PASS" start="2026-10-23T10:22:03.390238" elapsed="0.003114"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:01.209948" elapsed="3.510348"/>
+<status status="PASS" start="2026-10-23T10:21:59.116735" elapsed="4.277621"/>
 </test>
 <kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-10-22T11:25:04.732463" elapsed="2.193828"/>
+<status status="PASS" start="2026-10-23T10:22:03.400355" elapsed="2.260362"/>
 </kw>
 <kw name="Disconnect From Database" owner="db_keywords">
 <kw name="Close Connection" owner="db_connection">
 <arg>${DB_CONN}</arg>
-<status status="PASS" start="2026-10-22T11:25:06.927397" elapsed="0.006639"/>
+<status status="PASS" start="2026-10-23T10:22:05.661712" elapsed="0.007005"/>
 </kw>
-<status status="PASS" start="2026-10-22T11:25:06.926938" elapsed="0.007317"/>
+<status status="PASS" start="2026-10-23T10:22:05.660717" elapsed="0.008000"/>
 </kw>
 <arg>Close All Browsers</arg>
 <arg>AND</arg>
 <arg>Disconnect From Database</arg>
 <doc>Executes all the given keywords in a sequence.</doc>
-<status status="PASS" start="2026-10-22T11:25:04.723526" elapsed="2.210846"/>
+<status status="PASS" start="2026-10-23T10:22:03.397350" elapsed="2.271367"/>
 </kw>
 <doc>Test de connexion à Sage X3</doc>
-<status status="PASS" start="2026-10-22T11:25:01.191011" elapsed="5.743473"/>
+<status status="PASS" start="2026-10-23T10:21:59.103733" elapsed="6.565974"/>
 </suite>
-<status status="PASS" start="2026-10-22T11:25:00.261020" elapsed="6.676107"/>
+<status status="PASS" start="2026-10-23T10:21:57.442539" elapsed="8.228061"/>
 </suite>
 <statistics>
 <total>
