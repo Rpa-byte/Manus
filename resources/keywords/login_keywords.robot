@@ -1,8 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
-Library    ../../libraries/file_utils.py
 Library    ../../libraries/utils/file_utils.py
+Resource    ../variables/dev_variables.robot
 
 *** Keywords ***
 Open Sage Login Page
@@ -20,4 +20,4 @@ Login With Credentials
     Click Element     id=go-basic
 
 Login Should Succeed
-    Wait Until Page Contains Element    id=homeMenu    timeout=${TIMEOUT}
+    Wait Until Page Contains Element    id=s_app_body    timeout=${TIMEOUT}

@@ -1,0 +1,5 @@
+  venv/
+  .venv/
+  
+resources/variables/dev_variables.robot
+resources/variables/prod_variables.robot

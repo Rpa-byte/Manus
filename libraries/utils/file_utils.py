@@ -3,6 +3,7 @@ import re
 import shutil
 import time
 from datetime import date
+from selenium import webdriver
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
@@ -18,6 +19,16 @@ def get_invoice_folder(base_dir, run_date=None):
     os.makedirs(folder, exist_ok=True)
     return folder
 
+def get_chrome_options(download_dir):
+    """Chrome options: download PDFs into download_dir without asking."""
+    os.makedirs(download_dir, exist_ok=True)
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("prefs", {
+        "download.default_directory": download_dir,
+        "download.prompt_for_download": False,
+        "plugins.always_open_pdf_externally": True,
+    })
+    return options
 
 def clear_folder(folder):
     """Create the folder if missing and delete the files inside."""

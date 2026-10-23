@@ -6,6 +6,6 @@ Suite Teardown      Disconnect From Database
 
 *** Test Cases ***
 Database Connection Works
-    ${rows}=    Query Database    SELECT TOP 1 NUM_0 FROM x3.BASE1.XLISTVENTER2
-    Log    ${rows}
+    ${rows}=    Query Database    SELECT TOP 1 * FROM x3.BASE1.XLISTVENTER2
+    Log To Console    Result: ${rows}
     Should Not Be Empty    ${rows}
